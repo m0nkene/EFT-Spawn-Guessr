@@ -34,20 +34,21 @@
     <button id="mapRead" class="timeRead"></button>
     <img src="locations/FACT/overlay/Factory_Base.jpg" height="100%" width="100%"/></div>
 
-
-<!--  <div class="center" >-->
+<!--working but not ideal-->
+<!--  <div class="center">-->
 <!--    <div class ="overlay" id="scoreOverlay">-->
-<!--      <menu id="scoreMenu" class="main_menu">-->
-<!--        <a id="scoreReader" class="active"></a>-->
-<!--        <a href="map_sel.html" class="active">FINISH</a>-->
-<!--      </menu>-->
+<!--      <div id="scoreReader">0</div>-->
+<!--      <a id="finishButton" href="map_sel.html">FINISH</a>-->
+<!--    </div>-->
 <!--  </div>-->
 
-  <div class ="overlay" id="scoreOverlay">
-    <menu id="scoreMenu" class="main_menu">
-      <a id="scoreReader" class="active"></a>
-      <a href="map_sel.html" class="active">FINISH</a>
-    </menu>
+  <div class="overlay" id="scoreOverlay">
+    <div id="scoreReader" class="center">0</div>
+    <div class="banner">
+      <button id="homeButton" onclick="window.location.href='index.html';">HOME</button>
+      <button id="finishButton" onclick="window.location.href='map_sel.html';">FINISH</button>
+      <button id="leaderButton" onclick="window.location.href='#';">LEADERBOARD</button>
+    </div>
   </div>
 
 </body>
