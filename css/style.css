@@ -207,13 +207,24 @@ textarea {
 }
 
 #startButton {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 20px;
-  color: white;
-  background-color: black;
+  /*display: inline-block;*/
+  /*padding: 10px 20px;*/
+  /*font-size: 20px;*/
+  /*color: white;*/
+  /*background-color: black;*/
+  /*border: none;*/
+  /*border-radius: 50px; !* Rounded edges *!*/
+  /*cursor: pointer;*/
+  background-color: #4CAF50;
+  width: 15%;
   border: none;
-  border-radius: 50px; /* Rounded edges */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
   cursor: pointer;
 }
 
