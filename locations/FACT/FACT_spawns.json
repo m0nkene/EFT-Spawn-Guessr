@@ -1,76 +1,64 @@
 {
-  "factory":[
+  "FACT":[
     {
       "id" : "1",
-      "name" : "barrels",
-      "x_cords" : "597",
-      "y_cords" : "649"
+      "x_cords" : "540",
+      "y_cords" : "670"
     },
     {
       "id" : "2",
-      "name" : "gate0",
-      "x_cords" : "652",
-      "y_cords" : "791"
+      "x_cords" : "590",
+      "y_cords" : "815"
     },
     {
       "id" : "3",
-      "name" : "unloading",
-      "x_cords" : "835",
-      "y_cords" : "251"
+      "x_cords" : "750",
+      "y_cords" : "265"
     },
     {
       "id" : "4",
-      "name" : "stairs",
-      "x_cords" : "851",
-      "y_cords" : "386"
+      "x_cords" : "765",
+      "y_cords" : "405"
     },
     {
       "id" : "5",
-      "name" : "room",
-      "x_cords" : "924",
-      "y_cords" : "688"
+      "x_cords" : "830",
+      "y_cords" : "710"
     },
     {
       "id" : "6",
-      "name" : "glass",
-      "x_cords" : "1026",
-      "y_cords" : "197"
+      "x_cords" : "920",
+      "y_cords" : "210"
     },
     {
       "id" : "7",
-      "name" : "med",
-      "x_cords" : "1158",
-      "y_cords" : "566"
+      "x_cords" : "1040",
+      "y_cords" : "585"
     },
     {
       "id" : "8",
-      "name" : "hall",
-      "x_cords" : "1192",
-      "y_cords" : "318"
+      "x_cords" : "1070",
+      "y_cords" : "335"
     },
     {
       "id" : "9",
-      "name" : "lifts",
-      "x_cords" : "1316",
-      "y_cords" : "195"
+      "x_cords" : "1180",
+      "y_cords" : "210"
     },
     {
       "id" : "10",
-      "name" : "tun_alcove",
-      "x_cords" : "1400",
-      "y_cords" : "633"
+      "x_cords" : "1255",
+      "y_cords" : "655"
     },
     {
       "id" : "11",
-      "name" : "tun_hall",
-      "x_cords" : "1624",
-      "y_cords" : "444"
+      "x_cords" : "1455",
+      "y_cords" : "460"
     },
     {
       "id" : "12",
-      "name" : "tun_room",
-      "x_cords" : "1737",
-      "y_cords" : "584"
+      "x_cords" : "1555",
+      "y_cords" : "605"
     }
   ]
 }

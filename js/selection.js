@@ -1,20 +1,31 @@
 function generateMap(name){
 
-  return new Promise((resolve,reject) =>{
-    sessionStorage.setItem('spawn_name' , name);
+  let num = '10';
 
-    //reading JSON and determining which map to present - will only use 5 for right now
-    fetch('locations/' + name + '/' +  name + '_spawns.json')
+  return new Promise((resolve,reject) =>{
+    console.log(name);
+
+    
+
+    const fileNm =  'locations/' + name + '/' +  name + '_spawns.json';
+    console.log(fileNm);
+
+    //reading JSON and determining which map to present - will only use 8 for right now
+    fetch(fileNm)
       .then(response => response.json())
       .then(data => {
-        let len = data.factory.length;
+        console.log(data);
+        let len = data[name].length;
         console.log(len);
-        let rand = (Math.floor(Math.random() * len)).toString();
-        sessionStorage.setItem('spawn_num' , rand);
-        console.log(rand);
+        //let rand = (Math.floor(Math.random() * len)).toString();
+        console.log(num);
 
-        let spawn = data.factory.find(spawn => spawn.id === rand);
+        let spawn = data[name].find(spawn => spawn.id === num);
         console.log(JSON.stringify(spawn));
+
+
+        sessionStorage.setItem('spawn_name' , name);
+        sessionStorage.setItem('spawn_num' , num);
         sessionStorage.setItem('spawn_data' , JSON.stringify(spawn));
         resolve();
       })

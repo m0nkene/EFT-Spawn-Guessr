@@ -58,7 +58,7 @@ function guess(e){
   //logging the score to the console for reference
   //console.log(SCORE);
   let reader = document.getElementById('scoreReader');
-  reader.innerHTML = SCORE;
+  reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
 
 
 
@@ -67,30 +67,35 @@ function guess(e){
   document.getElementById('player').style.display = 'none';
   document.getElementById('startOverlay').style.display = 'none';
   document.getElementById('scoreOverlay').style.display = 'block';
+
+  //clearing session values between guesses
+  sessionStorage.setItem('spawn_num' , '0');
+  sessionStorage.setItem('spawn_name' , null);
+  sessionStorage.setItem('spawn_data', null);
 }
 
-function scorer (time,x1, y1, cor_x, cor_y){
-  let dx = cor_x - x1;
-  let dy = cor_y - y1;
+function scorer (time, user_x, user_y, cor_x, cor_y){
+
+  let dx = cor_x - user_x;
+  let dy = cor_y - user_y;
   let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
 
-  let time2 = time * 100;
   const mod = 10;
-
-  //return dist;
-
+  
+  return dist;
+  
   switch (true){
     case (dist <= 30):
-      return (100000 - (time2 * mod));
-
+      return ((1000 / time).toFixed(2))*100;
+  
     case (dist > 30 && dist <= 60):
-      return (50000 - (time2 * mod));
-
+      return ((500 / time).toFixed(2))*100;
+  
     case (dist > 60 && dist <= 90):
-      return (25000 - (time2 * mod));
-
+      return ((250 / time).toFixed(2))*100;
+  
     default:
-      return (0 - (time2 * mod));
+      return (0);
   }
 }
 
