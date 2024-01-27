@@ -76,39 +76,24 @@ function scorer (time, user_x, user_y, cor_x, cor_y){
 
   let rect = document.body.getBoundingClientRect();
 
-  //calculating click position relative to the element size/location
-  let x = user_x - rect.left;
-  let y = user_y - rect.top;
-
-  //normalize click to original screen size
-  let normX = x / rect.width * origWidth;
-  let normY = y / rect.height * origHeight;
-
-
-  let dx = cor_x - normX;
-  let dy = cor_y - normY
-  let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
-
-  return dist;
-
-  // let time2 = time * 100;
-  // const mod = 10;
-  //
-  // //return dist;
-  //
-  // switch (true){
-  //   case (dist <= 30):
-  //     return (100000 - (time2 * mod));
-  //
-  //   case (dist > 30 && dist <= 60):
-  //     return (50000 - (time2 * mod));
-  //
-  //   case (dist > 60 && dist <= 90):
-  //     return (25000 - (time2 * mod));
-  //
-  //   default:
-  //     return (0 - (time2 * mod));
-  // }
+  let time2 = time * 100;
+  const mod = 10;
+  
+  //return dist;
+  
+  switch (true){
+    case (dist <= 30):
+      return (100000 - (time2 * mod));
+  
+    case (dist > 30 && dist <= 60):
+      return (50000 - (time2 * mod));
+  
+    case (dist > 60 && dist <= 90):
+      return (25000 - (time2 * mod));
+  
+    default:
+      return (0 - (time2 * mod));
+  }
 }
 
 

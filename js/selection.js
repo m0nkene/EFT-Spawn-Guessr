@@ -1,9 +1,11 @@
 function generateMap(name){
 
+  let num = '8';
+
   return new Promise((resolve,reject) =>{
     sessionStorage.setItem('spawn_name' , name);
 
-    let num = '8';
+    
 
     let fileNm =  'locations/' + name + '/' +  name + '_spawns.json';
     console.log(fileNm);
