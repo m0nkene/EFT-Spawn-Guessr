@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="css/style.css">
   <title>FACTORY</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script type="text/javascript" src="js/spawn.js"></script>
   <style>
@@ -20,7 +23,7 @@
 <body background="img/menu_background.jpg">
 
 
-  <div  class="overlay" id="startOverlay">
+  <!-- <div  class="overlay" id="startOverlay">
         <button id="startButton" class="center" onclick="startGame()">START</button>
   </div>
 
@@ -28,20 +31,38 @@
     <button id="guesser" onclick="showMapOverlay()">Guess</button>
     <button id="panRead" class="timeRead"></button>
     <div id="panorama"></div>
-  </div>
+  </div> -->
 
-  <div class ="overlay" id="mapOverlay" onclick="guess(event)">
+  <div id="map" class="center"></div>
+  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin="">
+  </script>
+
+  <script>
+    function init() {
+    var map = L.map('mapOverlay').setView([50.08748, 14.42132], 16);
+    L.tileLayer('FACT_Base.jpg', { maxZoom: 16 }).addTo(map);
+    }
+    window.onload = init;
+  </script>
+  
+  <!-- <div class ="overlay" id="mapOverlay" onclick="guess(event)">
     <button id="mapRead" class="timeRead"></button>
-    <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/></div>
+    <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/>
+  </div> -->
 
-  <div class="overlay" id="scoreOverlay">
+  
+  
+  <!-- <div class="overlay" id="scoreOverlay">
     <div id="scoreReader" class="center">0</div>
     <div class="banner">
       <button id="homeButton" onclick="window.location.href='index.html';">HOME</button>
       <button id="finishButton" onclick="window.location.href='map_sel.html';">FINISH</button>
       <button id="leaderButton" onclick="window.location.href='404.html';">LEADERBOARD</button>
     </div>
-  </div>
+  </div> -->
 
 </body>
 </html>

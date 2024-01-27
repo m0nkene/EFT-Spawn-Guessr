@@ -44,6 +44,11 @@ function timer(toggle){
    timer(true);
 }
 
+function init() {
+  var map = L.map('mapOverlay').setView([50.08748, 14.42132], 16);
+  L.tileLayer('locations\\'+spawn_name+'\overlay\\'+spawn_name+'_Base.jpg', { maxZoom: 16 }).addTo(map);
+}
+
 
 function guess(e){
 

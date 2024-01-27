@@ -238,8 +238,11 @@ textarea {
   z-index: 1000;
 }
 
-#mapOverlay{
-  z-index: 1600;
+#map{
+  height: 50dv;
+  width: auto;
+
+  z-index: 2000;
 }
 
 #scoreOverlay{
