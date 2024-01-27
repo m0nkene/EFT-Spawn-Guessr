@@ -50,6 +50,11 @@ function guess(e){
   const cor_x = spawn_data["x_cords"];
   const cor_y = spawn_data["y_cords"];
 
+  let win_x = window.innerWidth;
+  let win_y = window.innerHeight;
+
+  // const x_fact =
+
   let time = timer(false).toFixed(2);
   let pos_x = e.clientX;
   let pos_y = e.clientY;
@@ -74,24 +79,26 @@ function scorer (time,x1, y1, cor_x, cor_y){
   let dy = cor_y - y1;
   let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
 
-  let time2 = time * 100;
-  const mod = 10;
+  return dist;
 
-  //return dist;
-
-  switch (true){
-    case (dist <= 30):
-      return (100000 - (time2 * mod));
-
-    case (dist > 30 && dist <= 60):
-      return (50000 - (time2 * mod));
-
-    case (dist > 60 && dist <= 90):
-      return (25000 - (time2 * mod));
-
-    default:
-      return (0 - (time2 * mod));
-  }
+  // let time2 = time * 100;
+  // const mod = 10;
+  //
+  // //return dist;
+  //
+  // switch (true){
+  //   case (dist <= 30):
+  //     return (100000 - (time2 * mod));
+  //
+  //   case (dist > 30 && dist <= 60):
+  //     return (50000 - (time2 * mod));
+  //
+  //   case (dist > 60 && dist <= 90):
+  //     return (25000 - (time2 * mod));
+  //
+  //   default:
+  //     return (0 - (time2 * mod));
+  // }
 }
 
 

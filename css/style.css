@@ -86,16 +86,22 @@ textarea {
 
 
 .main_menu{
-  width: 250px;
   text-align: center;
 }
 
 .main_menu a {
-  background-color: #eee;
-  color: black;
-  display: block;
-  padding: 12px;
+  background-color: #4CAF50;
+  width: 25vw;
+  border: none;
+  color: white;
+  padding: 1vh 2vw;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 4px 2px;
+  border-radius: 1vw;
+  cursor: pointer;
 }
 
 .main_menu a:hover {
@@ -106,7 +112,7 @@ textarea {
   display: none;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
@@ -129,10 +135,10 @@ textarea {
 
 .timeRead{
   position: fixed;
-  bottom: 150px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 50px;
+  bottom: 2vh;
+  right: 2vw;
+  padding: 1vh 2vw;
+  font-size: 3vw;
   z-index: 1700;
   /*background-color: black;*/
 }
@@ -141,64 +147,60 @@ textarea {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 15%;
+  height: 15vh;
   background-color: #333;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 2vh 0;
 }
 
 .banner button {
   background-color: #4CAF50;
-  width: 15%;
+  width: 15vw;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 1vh 2vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px;
+  font-size: 3vw;
   margin: 4px 2px;
+  border-radius: 1vw;
   cursor: pointer;
 }
 
 .banner button:first-child{
-  margin-left: 15%;
+  margin-left: 2vw;
+  font-size: 1.5vw;
 }
 
 .banner button:last-child{
-  margin-right: 15%;
+  margin-right: 2vw;
+  font-size: 1.5vw;
 }
 
-
-
-#scoreReader{
-  font-size: 120px;
-  font-family: "Arial Black", sans-serif;
+#startButton {
+  background-color: #4CAF50;
+  width: 30vw;
+  border: none;
   color: white;
+  padding: 1vh 2vw;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 4px 2px;
+  border-radius: 3vw;
+  cursor: pointer;
+}
+
+#startButton:hover {
+  background-color: #2d4b2d;
 }
 
 #panos{
   z-index: 500;
-}
-
-#guesser{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 50px;
-  z-index: 1000;
-}
-
-#scoreOverlay{
-  z-index: 1900;
-}
-
-#mapOverlay{
-  z-index: 1600;
 }
 
 #startOverlay{
@@ -206,30 +208,28 @@ textarea {
   z-index: 2000;
 }
 
-#startButton {
-  /*display: inline-block;*/
-  /*padding: 10px 20px;*/
-  /*font-size: 20px;*/
-  /*color: white;*/
-  /*background-color: black;*/
-  /*border: none;*/
-  /*border-radius: 50px; !* Rounded edges *!*/
-  /*cursor: pointer;*/
-  background-color: #4CAF50;
-  width: 15%;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 25px;
-  margin: 4px 2px;
-  cursor: pointer;
+#guesser{
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  padding: 1vh 2vw;
+  font-size: 3vw;
+  z-index: 1000;
 }
 
-#startButton:hover {
-  background-color: darkgray;
+#mapOverlay{
+  z-index: 1600;
+}
+
+#scoreOverlay{
+  z-index: 1900;
+}
+
+#scoreReader{
+  font-size: 120px;
+  font-family: "Arial Black", sans-serif;
+  color: white;
+  text-align: center;
 }
 
 

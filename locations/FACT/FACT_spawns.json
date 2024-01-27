@@ -2,63 +2,63 @@
   "factory":[
     {
       "id" : "1",
-      "x_cords" : "595",
-      "y_cords" : "650"
+      "x_cords" : "540",
+      "y_cords" : "670"
     },
     {
       "id" : "2",
-      "x_cords" : "650",
-      "y_cords" : "790"
+      "x_cords" : "590",
+      "y_cords" : "815"
     },
     {
       "id" : "3",
-      "x_cords" : "835",
-      "y_cords" : "250"
+      "x_cords" : "750",
+      "y_cords" : "265"
     },
     {
       "id" : "4",
-      "x_cords" : "850",
-      "y_cords" : "385"
+      "x_cords" : "765",
+      "y_cords" : "405"
     },
     {
       "id" : "5",
-      "x_cords" : "925",
-      "y_cords" : "690"
+      "x_cords" : "830",
+      "y_cords" : "710"
     },
     {
       "id" : "6",
-      "x_cords" : "1025",
-      "y_cords" : "195"
+      "x_cords" : "920",
+      "y_cords" : "210"
     },
     {
       "id" : "7",
-      "x_cords" : "1160",
-      "y_cords" : "565"
+      "x_cords" : "1040",
+      "y_cords" : "585"
     },
     {
       "id" : "8",
-      "x_cords" : "1190",
-      "y_cords" : "320"
+      "x_cords" : "1070",
+      "y_cords" : "335"
     },
     {
       "id" : "9",
-      "x_cords" : "1315",
-      "y_cords" : "195"
+      "x_cords" : "1180",
+      "y_cords" : "210"
     },
     {
       "id" : "10",
-      "x_cords" : "1400",
-      "y_cords" : "635"
+      "x_cords" : "1255",
+      "y_cords" : "655"
     },
     {
       "id" : "11",
-      "x_cords" : "1625",
-      "y_cords" : "445"
+      "x_cords" : "1455",
+      "y_cords" : "460"
     },
     {
       "id" : "12",
-      "x_cords" : "1735",
-      "y_cords" : "585"
+      "x_cords" : "1555",
+      "y_cords" : "605"
     }
   ]
 }
