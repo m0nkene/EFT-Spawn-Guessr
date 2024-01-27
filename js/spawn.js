@@ -50,11 +50,6 @@ function guess(e){
   const cor_x = spawn_data["x_cords"];
   const cor_y = spawn_data["y_cords"];
 
-  let win_x = window.innerWidth;
-  let win_y = window.innerHeight;
-
-  // const x_fact =
-
   let time = timer(false).toFixed(2);
   let pos_x = e.clientX;
   let pos_y = e.clientY;
@@ -63,7 +58,7 @@ function guess(e){
   //logging the score to the console for reference
   //console.log(SCORE);
   let reader = document.getElementById('scoreReader');
-  reader.innerHTML = SCORE;
+  reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
 
 
 
@@ -74,9 +69,24 @@ function guess(e){
   document.getElementById('scoreOverlay').style.display = 'block';
 }
 
-function scorer (time,x1, y1, cor_x, cor_y){
-  let dx = cor_x - x1;
-  let dy = cor_y - y1;
+function scorer (time, user_x, user_y, cor_x, cor_y){
+
+  const origWidth = 7680;
+  const origHeight = 4320;
+
+  let rect = document.body.getBoundingClientRect();
+
+  //calculating click position relative to the element size/location
+  let x = user_x - rect.left;
+  let y = user_y - rect.top;
+
+  //normalize click to original screen size
+  let normX = x / rect.width * origWidth;
+  let normY = y / rect.height * origHeight;
+
+
+  let dx = cor_x - normX;
+  let dy = cor_y - normY
   let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
 
   return dist;

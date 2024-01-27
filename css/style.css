@@ -138,7 +138,7 @@ textarea {
   bottom: 2vh;
   right: 2vw;
   padding: 1vh 2vw;
-  font-size: 3vw;
+  font-size: 4vw;
   z-index: 1700;
   /*background-color: black;*/
 }
@@ -180,6 +180,10 @@ textarea {
   font-size: 1.5vw;
 }
 
+.banner button:hover{
+  background-color: #2d4b2d;
+}
+
 #startButton {
   background-color: #4CAF50;
   width: 30vw;
@@ -210,10 +214,19 @@ textarea {
 
 #guesser{
   position: fixed;
-  bottom: 2vh;
+  bottom: 50%;
   right: 2vw;
+  background-color: #4CAF50;
+  width: 15vw;
+  border: none;
+  color: white;
   padding: 1vh 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   font-size: 3vw;
+  border-radius: 1vw;
+
   z-index: 1000;
 }
 
