@@ -67,6 +67,11 @@ function guess(e){
   document.getElementById('player').style.display = 'none';
   document.getElementById('startOverlay').style.display = 'none';
   document.getElementById('scoreOverlay').style.display = 'block';
+
+  //clearing session values between guesses
+  sessionStorage.setItem('spawn_num' , '0');
+  sessionStorage.setItem('spawn_name' , null);
+  sessionStorage.setItem('spawn_data', null);
 }
 
 function scorer (time, user_x, user_y, cor_x, cor_y){
@@ -75,10 +80,9 @@ function scorer (time, user_x, user_y, cor_x, cor_y){
   let dy = cor_y - user_y;
   let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
 
-  let time2 = time * 100;  //12.25 -> 1225
   const mod = 10;
   
-  //return dist;
+  return dist;
   
   switch (true){
     case (dist <= 30):

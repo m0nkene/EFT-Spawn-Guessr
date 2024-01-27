@@ -137,10 +137,18 @@ textarea {
   position: fixed;
   bottom: 2vh;
   right: 2vw;
+  background-color: #2d4b2d;
+  width: 15vw;
+  border: none;
+  color: white;
   padding: 1vh 2vw;
-  font-size: 4vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vw;
+  border-radius: .5vw ;
+
   z-index: 1700;
-  /*background-color: black;*/
 }
 
 .banner {
@@ -214,7 +222,7 @@ textarea {
 
 #guesser{
   position: fixed;
-  bottom: 50%;
+  bottom: 20vh;
   right: 2vw;
   background-color: #4CAF50;
   width: 15vw;
