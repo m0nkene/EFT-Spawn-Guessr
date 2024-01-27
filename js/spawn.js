@@ -71,28 +71,27 @@ function guess(e){
 
 function scorer (time, user_x, user_y, cor_x, cor_y){
 
-  const origWidth = 7680;
-  const origHeight = 4320;
+  let dx = cor_x - user_x;
+  let dy = cor_y - user_y;
+  let dist = Math.sqrt((dx * dx) + (dy * dy)).toFixed();
 
-  let rect = document.body.getBoundingClientRect();
-
-  let time2 = time * 100;
+  let time2 = time * 100;  //12.25 -> 1225
   const mod = 10;
   
   //return dist;
   
   switch (true){
     case (dist <= 30):
-      return (100000 - (time2 * mod));
+      return ((1000 / time).toFixed(2))*100;
   
     case (dist > 30 && dist <= 60):
-      return (50000 - (time2 * mod));
+      return ((500 / time).toFixed(2))*100;
   
     case (dist > 60 && dist <= 90):
-      return (25000 - (time2 * mod));
+      return ((250 / time).toFixed(2))*100;
   
     default:
-      return (0 - (time2 * mod));
+      return (0);
   }
 }
 
