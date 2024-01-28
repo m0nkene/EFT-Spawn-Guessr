@@ -42,7 +42,7 @@
 
   <script>
     function init() {
-    var map = L.map('mapOverlay').setView([50.08748, 14.42132], 16);
+    var map = L.map('mapOverlay');
     L.tileLayer('FACT_Base.jpg', { maxZoom: 16 }).addTo(map);
     }
     window.onload = init;

@@ -239,7 +239,7 @@ textarea {
 }
 
 #map{
-  height: 50dv;
+  height: 100px;
   width: auto;
 
   z-index: 2000;
