@@ -34,6 +34,7 @@
   </div>
 
 
+  <!-- creating map component with the map image using the leaflet CRS Simple library -->
   <div id="leaflet_container">
 
     <div id="map"></div>
@@ -55,16 +56,14 @@
         //map.fitBounds(imageBnds);
         map.setView([216,384],0);
         
-        
+        //creating buffer zones to restrict map dragging by user
         let bnds = map.getBounds();
         let pdgRatio = 0.2;
-        
         let pddBnds = bnds.pad(pdgRatio);
-
         map.fitBounds(pddBnds);
-
         map.setMaxBounds(pddBnds);
         
+
         map.on('click', guess)
       }
   

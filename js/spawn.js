@@ -60,39 +60,33 @@ function startGame(){
 
 function guess(e){
 
-  // const cor_x = spawn_data["x_cords"];
-  // const cor_y = spawn_data["y_cords"];
+  const cor_x = spawn_data["x_cords"];
+  const cor_y = spawn_data["y_cords"];
 
   let time = timer(false).toFixed(2);
-  // let pos_x = e.clientX;
-  // let pos_y = e.clientY;
-  // let SCORE = scorer(time,pos_x,pos_y,cor_x,cor_y);
+  let coords = e.latlng;
+
+  let SCORE = scorer(time,coords.lat,coords.lng,cor_x,cor_y);
 
   //logging the score to the console for reference
-  //console.log(SCORE);
-  // let reader = document.getElementById('scoreReader');
-  // reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
- 
-  console.log(e.type);
-
-  let coords = e.latlng;
-  //let projCoords = map.options.crs.project(coords);
+  console.log(SCORE);
+  let reader = document.getElementById('scoreReader');
+  reader.innerHTML = SCORE;
 
   console.log(coords);
-  // console.log("You clicked the map at " + map.project(coords,2));
 
 
-  // //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
-  // document.getElementById('mapOverlay').style.display = 'none';
-  // document.getElementById('player').style.display = 'none';
-  // document.getElementById('startOverlay').style.display = 'none';
-  // document.getElementById('leaflet_container').style.display = 'none';
-  // document.getElementById('scoreOverlay').style.display = 'block';
+  //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
+  document.getElementById('mapOverlay').style.display = 'none';
+  document.getElementById('player').style.display = 'none';
+  document.getElementById('startOverlay').style.display = 'none';
+  document.getElementById('leaflet_container').style.display = 'none';
+  document.getElementById('scoreOverlay').style.display = 'block';
 
-  // //clearing session values between guesses
-  // sessionStorage.setItem('spawn_num' , '0');
-  // sessionStorage.setItem('spawn_name' , null);
-  // sessionStorage.setItem('spawn_data', null);
+  //clearing session values between guesses
+  sessionStorage.setItem('spawn_num' , '0');
+  sessionStorage.setItem('spawn_name' , null);
+  sessionStorage.setItem('spawn_data', null);
 }
 
 function scorer (time, user_x, user_y, cor_x, cor_y){
@@ -103,17 +97,17 @@ function scorer (time, user_x, user_y, cor_x, cor_y){
 
   const mod = 10;
   
-  return dist;
+  //return dist;
   
   switch (true){
-    case (dist <= 30):
-      return ((1000 / time).toFixed(2))*100;
+    case (dist <= 10):
+      return (((10000 / time).toFixed(2))*100).toFixed();
   
-    case (dist > 30 && dist <= 60):
-      return ((500 / time).toFixed(2))*100;
+    case (dist > 10 && dist <= 20):
+      return (((5000 / time).toFixed(2))*100).toFixed();
   
-    case (dist > 60 && dist <= 90):
-      return ((250 / time).toFixed(2))*100;
+    case (dist > 20 && dist <= 30):
+      return (((2500 / time).toFixed(2))*100).toFixed();
   
     default:
       return (0);

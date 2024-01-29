@@ -1,6 +1,6 @@
 function generateMap(name){
 
-  let num = '10';
+  //let num = '10';
 
   return new Promise((resolve,reject) =>{
     console.log(name);
@@ -17,15 +17,15 @@ function generateMap(name){
         console.log(data);
         let len = data[name].length;
         console.log(len);
-        //let rand = (Math.floor(Math.random() * len)).toString();
-        console.log(num);
+        let rand = ((Math.floor(Math.random() * len)+1)).toString();
+        console.log(rand);
 
-        let spawn = data[name].find(spawn => spawn.id === num);
+        let spawn = data[name].find(spawn => spawn.id === rand);
         console.log(JSON.stringify(spawn));
 
 
         sessionStorage.setItem('spawn_name' , name);
-        sessionStorage.setItem('spawn_num' , num);
+        sessionStorage.setItem('spawn_num' , rand);
         sessionStorage.setItem('spawn_data' , JSON.stringify(spawn));
         resolve();
       })
