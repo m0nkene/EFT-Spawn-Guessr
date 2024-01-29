@@ -135,7 +135,7 @@ textarea {
 
 .timeRead{
   position: fixed;
-  bottom: 2vh;
+  bottom: 40vh;
   right: 2vw;
   background-color: #2d4b2d;
   width: 15vw;
@@ -222,7 +222,7 @@ textarea {
 
 #guesser{
   position: fixed;
-  bottom: 20vh;
+  bottom: 50vh;
   right: 2vw;
   background-color: #4CAF50;
   width: 15vw;
@@ -238,13 +238,6 @@ textarea {
   z-index: 1000;
 }
 
-#map{
-  height: 100px;
-  width: auto;
-
-  z-index: 2000;
-}
-
 #scoreOverlay{
   z-index: 1900;
 }
@@ -256,7 +249,15 @@ textarea {
   text-align: center;
 }
 
+#map{
+  height: 35vh;
+  width: 30vw;
+  position: fixed;
+  bottom: .5vh;
+  right: .5vw;
 
+  z-index: 1000;
+}
 
 
 

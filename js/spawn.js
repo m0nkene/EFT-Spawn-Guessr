@@ -16,7 +16,7 @@ function timer(toggle){
     timerInterval = setInterval(function (){
       time+= 0.01;
       panRead.innerHTML = time.toFixed(2);
-      mapRead.innerHTML = time.toFixed(2);
+      //mapRead.innerHTML = time.toFixed(2);
     },10);
   }
   else {
@@ -26,11 +26,23 @@ function timer(toggle){
   }
 }
 
+function init() {
+  let map = L.map('map');
+  let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
+  let imageBnds = [[0,0],[auto,auto]];
+
+  L.imageOverlay(imageURL,imageBnds).addTo(map);
+  map.fitBounds(imageBnds);
+
+}
+
  function startGame(){
 
    console.log(spawn_num);
    console.log(spawn_name);
    console.log(JSON.stringify(spawn_data));
+
+   init();
 
    document.getElementById('startOverlay').style.display = 'none';
    document.getElementById('player').style.display = 'block';
@@ -42,11 +54,6 @@ function timer(toggle){
    });
 
    timer(true);
-}
-
-function init() {
-  var map = L.map('mapOverlay').setView([50.08748, 14.42132], 16);
-  L.tileLayer('locations\\'+spawn_name+'\overlay\\'+spawn_name+'_Base.jpg', { maxZoom: 16 }).addTo(map);
 }
 
 
@@ -71,6 +78,7 @@ function guess(e){
   document.getElementById('mapOverlay').style.display = 'none';
   document.getElementById('player').style.display = 'none';
   document.getElementById('startOverlay').style.display = 'none';
+  document.getElementById('leaflet_container').style.display = 'none';
   document.getElementById('scoreOverlay').style.display = 'block';
 
   //clearing session values between guesses
