@@ -14,11 +14,11 @@ function generateMap(name){
     fetch(fileNm)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        
         let len = data[name].length;
-        console.log(len);
+        
         let rand = ((Math.floor(Math.random() * len)+1)).toString();
-        console.log(rand);
+        
 
         let spawn = data[name].find(spawn => spawn.id === rand);
         console.log(JSON.stringify(spawn));
