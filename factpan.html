@@ -34,7 +34,7 @@
   </div>
 
 
-  <div id="leaflet_container" onclick="guess(event)">
+  <div id="leaflet_container">
 
     <div id="map"></div>
   
@@ -45,17 +45,29 @@
   
     <script>
       function init() {
-        let map = L.map('map');
+        let map = L.map('map', {
+          crs: L.CRS.Simple
+        });
         let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
-        let imageBnds = [[0,0],[100,500]];
+        let imageBnds = [[0,0],[432,768]];
   
         L.imageOverlay(imageURL,imageBnds).addTo(map);
-        map.fitBounds(imageBnds);
-        map.setView([70,250],2);
-  
+        //map.fitBounds(imageBnds);
+        map.setView([216,384],0);
+        
+        
+        let bnds = map.getBounds();
+        let pdgRatio = 0.2;
+        
+        let pddBnds = bnds.pad(pdgRatio);
+
+        map.fitBounds(pddBnds);
+
+        map.setMaxBounds(pddBnds);
+        
+        map.on('click', guess)
       }
   
-      //window.onload = init;
     </script>
 
   </div>

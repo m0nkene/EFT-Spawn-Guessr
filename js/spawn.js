@@ -42,10 +42,11 @@ function startGame(){
   console.log(spawn_name);
   console.log(JSON.stringify(spawn_data));
 
-  init();
-
   document.getElementById('startOverlay').style.display = 'none';
+  document.getElementById('map').style.display = 'block';
   document.getElementById('player').style.display = 'block';
+
+  init();
 
   pannellum.viewer('panorama', {
     "type": "equirectangular",
@@ -59,35 +60,39 @@ function startGame(){
 
 function guess(e){
 
-  const cor_x = spawn_data["x_cords"];
-  const cor_y = spawn_data["y_cords"];
+  // const cor_x = spawn_data["x_cords"];
+  // const cor_y = spawn_data["y_cords"];
 
   let time = timer(false).toFixed(2);
-  let pos_x = e.clientX;
-  let pos_y = e.clientY;
-  let SCORE = scorer(time,pos_x,pos_y,cor_x,cor_y);
+  // let pos_x = e.clientX;
+  // let pos_y = e.clientY;
+  // let SCORE = scorer(time,pos_x,pos_y,cor_x,cor_y);
 
   //logging the score to the console for reference
   //console.log(SCORE);
-  let reader = document.getElementById('scoreReader');
-  reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
-
+  // let reader = document.getElementById('scoreReader');
+  // reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
+ 
+  console.log(e.type);
 
   let coords = e.latlng;
-  console.log("You clicked the map at " + map.project(coords));
+  //let projCoords = map.options.crs.project(coords);
+
+  console.log(coords);
+  // console.log("You clicked the map at " + map.project(coords,2));
 
 
-  //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
-  document.getElementById('mapOverlay').style.display = 'none';
-  document.getElementById('player').style.display = 'none';
-  document.getElementById('startOverlay').style.display = 'none';
-  document.getElementById('leaflet_container').style.display = 'none';
-  document.getElementById('scoreOverlay').style.display = 'block';
+  // //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
+  // document.getElementById('mapOverlay').style.display = 'none';
+  // document.getElementById('player').style.display = 'none';
+  // document.getElementById('startOverlay').style.display = 'none';
+  // document.getElementById('leaflet_container').style.display = 'none';
+  // document.getElementById('scoreOverlay').style.display = 'block';
 
-  //clearing session values between guesses
-  sessionStorage.setItem('spawn_num' , '0');
-  sessionStorage.setItem('spawn_name' , null);
-  sessionStorage.setItem('spawn_data', null);
+  // //clearing session values between guesses
+  // sessionStorage.setItem('spawn_num' , '0');
+  // sessionStorage.setItem('spawn_name' , null);
+  // sessionStorage.setItem('spawn_data', null);
 }
 
 function scorer (time, user_x, user_y, cor_x, cor_y){
@@ -118,6 +123,7 @@ function scorer (time, user_x, user_y, cor_x, cor_y){
 
 //WILL OPEN THE MAP OVERLAY WHEN THE GUESS BUTTON IS PRESSED, THE EVENT LISTENER WILL PASSIVELY WAIT FOR AN ESCAPE KEY PRESS
 function showMapOverlay() {
+  document.getElementById('map').style.display = 'block';
   document.getElementById('map').style.height = '60vh'; // reverts the map overlay
   document.getElementById('map').style.width = '50vw';
 }

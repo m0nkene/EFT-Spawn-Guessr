@@ -249,14 +249,23 @@ textarea {
   text-align: center;
 }
 
+
 #map{
+  display: none;
   height: 35vh;
   width: 30vw;
   position: fixed;
   bottom: .5vh;
   right: .5vw;
 
+  background-color: #2d4b2d;
+
   z-index: 1700;
+}
+
+#create_map{
+  height: 100vh;
+  width: auto;
 }
 
 

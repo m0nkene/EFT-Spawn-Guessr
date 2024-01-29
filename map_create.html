@@ -6,8 +6,37 @@
   <script type="text/javascript" src="js/create_map.js"></script>
 </head>
 
-  <div class ="overlay" id="mapOverlay" onclick="getCoords(event)">
-    <img src="locations/RES/overlay/Reserve_Spawns_All.jpg" style="width:auto; height: 100vh"/></div>
+  
+  <div id="leaflet_container">
+
+    <div id="create_map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin="">
+    </script>
+
+    <script>
+      function init() {
+        let map = L.map('create_map', {
+          crs: L.CRS.Simple
+        });
+        let imageURL = 'locations\\FACT\\overlay\\Factory_Map_Spawns_All.jpg';
+        let imageBnds = [[0,0],[432,768]];
+
+        L.imageOverlay(imageURL,imageBnds).addTo(map);
+        //map.fitBounds(imageBnds);
+        map.setView([216,384],0);
+        
+        map.on('click', getCoords);
+      }
+
+      window.onload = init();
+    </script>
+
+  </div>
+
+
 
 <body>
 
