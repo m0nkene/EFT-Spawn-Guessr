@@ -36,24 +36,24 @@ function init() {
 
 }
 
- function startGame(){
+function startGame(){
 
-   console.log(spawn_num);
-   console.log(spawn_name);
-   console.log(JSON.stringify(spawn_data));
+  console.log(spawn_num);
+  console.log(spawn_name);
+  console.log(JSON.stringify(spawn_data));
 
-   init();
+  init();
 
-   document.getElementById('startOverlay').style.display = 'none';
-   document.getElementById('player').style.display = 'block';
+  document.getElementById('startOverlay').style.display = 'none';
+  document.getElementById('player').style.display = 'block';
 
-   pannellum.viewer('panorama', {
-     "type": "equirectangular",
-     "panorama": "locations/"+spawn_name+"/pans/"+spawn_name+"_"+spawn_num+"_PAN.jpg",
-     "autoLoad" : true,
-   });
+  pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "locations/"+spawn_name+"/pans/"+spawn_name+"_"+spawn_num+"_PAN.jpg",
+    "autoLoad" : true,
+  });
 
-   timer(true);
+  timer(true);
 }
 
 
@@ -72,6 +72,9 @@ function guess(e){
   let reader = document.getElementById('scoreReader');
   reader.innerHTML = SCORE +" | X: "+pos_x+" | Y: "+pos_y;
 
+
+  let coords = e.latlng;
+  console.log("You clicked the map at " + map.project(coords));
 
 
   //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
@@ -115,11 +118,13 @@ function scorer (time, user_x, user_y, cor_x, cor_y){
 
 //WILL OPEN THE MAP OVERLAY WHEN THE GUESS BUTTON IS PRESSED, THE EVENT LISTENER WILL PASSIVELY WAIT FOR AN ESCAPE KEY PRESS
 function showMapOverlay() {
-  document.getElementById('mapOverlay').style.display = 'block';
+  document.getElementById('map').style.height = '60vh'; // reverts the map overlay
+  document.getElementById('map').style.width = '50vw';
 }
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' || e.keyCode === 27) {
-    document.getElementById('mapOverlay').style.display = 'none'; // Hides the map overlay
+    document.getElementById('map').style.height = '35vh'; // reverts the map overlay
+    document.getElementById('map').style.width = '30vw';
   }
 });

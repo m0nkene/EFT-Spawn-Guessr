@@ -148,7 +148,7 @@ textarea {
   font-size: 3vw;
   border-radius: .5vw ;
 
-  z-index: 1700;
+  z-index: 1100;
 }
 
 .banner {
@@ -256,7 +256,7 @@ textarea {
   bottom: .5vh;
   right: .5vw;
 
-  z-index: 1000;
+  z-index: 1700;
 }
 
 
