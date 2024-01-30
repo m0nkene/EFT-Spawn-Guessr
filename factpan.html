@@ -66,7 +66,6 @@
         
 
         map.on('click', guess);
-        map.on('click', scoreMap);
 
       }
   
@@ -76,14 +75,14 @@
 
   
   
-  <div class ="overlay" id="mapOverlay" onclick="guess(event); scoreMap()">
+  <!-- <div class ="overlay" id="mapOverlay" onclick="scoreMap()">
     <button id="mapRead" class="timeRead"></button>
     <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/>
   </div> -->
 
   
   
-  <div class="overlay" id="scoreOverlay">
+  <div class="overlay" id="scoreOverlay" >
     <div id="scoreReader" class="center">0</div>
 
 
@@ -99,7 +98,9 @@
       function scoreMap() {
 
         let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
-        let user_coords = sessionStorage.getItem('user_click');
+        let user_coords = JSON.parse(sessionStorage.getItem('user_click'));
+
+        console.log(user_coords);
 
         let score_map = L.map('score_map', {
           crs: L.CRS.Simple
@@ -108,9 +109,22 @@
         let imageBnds = [[0,0],[432,768]];
   
         L.imageOverlay(imageURL,imageBnds).addTo(score_map);
+        score_map.setView(user_coords,1);
 
-        // //adding the users marker to the map 
-        // let user_click = L.marker([user_coords.lat,user_coords.lng]).addTo(map);
+        //creating buffer zones to restrict map dragging by user
+        let bnds = score_map.getBounds();
+        let pdgRatio = 0.1;
+        let pddBnds = bnds.pad(pdgRatio);
+        score_map.fitBounds(pddBnds);
+        //score_map.setMaxBounds(pddBnds);
+
+        //adding the users marker to the map 
+        let user_lat = (user_coords.lat);
+        let user_lng = (user_coords.lng);
+
+        console.log(user_lat +" | "+ user_lng);
+
+        let user_click = L.marker(user_coords).addTo(score_map);
 
 
         // //determining what type of score zone to add around the users input. 
@@ -120,14 +134,14 @@
         //     fillColor: '#f03',
         //     fillOpacity: 0.3,
         //     radius: 3
-        //   }).addTo('score_map');
+        //   }).addTo(score_map);
         // }else{
         //   let rect = L.polygon([
         //     [spawn_data["x1_cords"],spawn_data["y1_cords"]],
         //     [spawn_data["x2_cords"],spawn_data["y2_cords"]],
         //     [spawn_data["x1_cords"],spawn_data["y2_cords"]],
         //     [spawn_data["x2_cords"],spawn_data["y1_cords"]],
-        //   ]).addTo(map);
+        //   ]).addTo(score_map);
         // }
       }
       

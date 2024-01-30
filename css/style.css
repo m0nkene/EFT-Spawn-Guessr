@@ -265,12 +265,15 @@ textarea {
 }
 
 #score_map{
-  height: 100vh;
-  width: auto;
+  height: 80vh;
+  width: 50vw;
   position: fixed;
-  left: 0;
+  right: 0.5vw;
+  top: .5vh;
 
-  z-index: 1950;
+  background-color: #2d4b2d;
+  
+  z-index: 2500;
 }
 
 #create_map{

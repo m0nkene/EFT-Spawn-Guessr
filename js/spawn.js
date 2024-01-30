@@ -54,7 +54,7 @@ function guess(e){
   let coords = e.latlng;
   let SCORE = 0;
 
-  sessionStorage.setItem('user_click', coords);
+  sessionStorage.setItem('user_click', JSON.stringify(coords));
 
   if(spawn_data["type"]=== "targ"){
     const cor_x = spawn_data["x_cords"];
@@ -76,9 +76,10 @@ function guess(e){
   let reader = document.getElementById('scoreReader');
   reader.innerHTML = SCORE;
 
+  scoreMap();
 
   //TOGGLING THE SCORE OVERLAY, CLOSING ALL OTHERS TO USE MAIN BACKGROUND
-  document.getElementById('mapOverlay').style.display = 'none';
+  //document.getElementById('mapOverlay').style.display = 'none';
   document.getElementById('player').style.display = 'none';
   document.getElementById('startOverlay').style.display = 'none';
   document.getElementById('leaflet_container').style.display = 'none';
