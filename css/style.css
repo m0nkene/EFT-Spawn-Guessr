@@ -247,6 +247,7 @@ textarea {
   font-family: "Arial Black", sans-serif;
   color: white;
   text-align: center;
+  left: 20vw;
 }
 
 
@@ -261,6 +262,15 @@ textarea {
   background-color: #2d4b2d;
 
   z-index: 1700;
+}
+
+#score_map{
+  height: 100vh;
+  width: auto;
+  position: fixed;
+  left: 0;
+
+  z-index: 1950;
 }
 
 #create_map{

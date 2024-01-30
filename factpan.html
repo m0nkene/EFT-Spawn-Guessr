@@ -34,7 +34,7 @@
   </div>
 
 
-  <!-- creating map component with the map image using the leaflet CRS Simple library -->
+  creating map component with the map image using the leaflet CRS Simple library
   <div id="leaflet_container">
 
     <div id="map"></div>
@@ -46,8 +46,6 @@
   
     <script>
       function init() {
-
-        let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
 
         let map = L.map('map', {
           crs: L.CRS.Simple
@@ -67,7 +65,9 @@
         map.setMaxBounds(pddBnds);
         
 
-        map.on('click', guess)
+        map.on('click', guess);
+        map.on('click', scoreMap);
+
       }
   
     </script>
@@ -76,7 +76,7 @@
 
   
   
-  <div class ="overlay" id="mapOverlay" onclick="guess(event)">
+  <div class ="overlay" id="mapOverlay" onclick="guess(event); scoreMap()">
     <button id="mapRead" class="timeRead"></button>
     <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/>
   </div> -->
@@ -85,6 +85,57 @@
   
   <div class="overlay" id="scoreOverlay">
     <div id="scoreReader" class="center">0</div>
+
+
+    <!-- Second leaflet container for the score screen -->
+    <div id="score_map"></div>
+  
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+       crossorigin="">
+    </script>
+  
+    <script>
+      function scoreMap() {
+
+        let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
+        let user_coords = sessionStorage.getItem('user_click');
+
+        let score_map = L.map('score_map', {
+          crs: L.CRS.Simple
+        });
+        let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
+        let imageBnds = [[0,0],[432,768]];
+  
+        L.imageOverlay(imageURL,imageBnds).addTo(score_map);
+
+        // //adding the users marker to the map 
+        // let user_click = L.marker([user_coords.lat,user_coords.lng]).addTo(map);
+
+
+        // //determining what type of score zone to add around the users input. 
+        // if(spawn_data["type"] === "targ"){
+        //   let circ = L.circle([spawn_data["x_cords"],spawn_data["y_cords"]], {
+        //     color: 'red',
+        //     fillColor: '#f03',
+        //     fillOpacity: 0.3,
+        //     radius: 3
+        //   }).addTo('score_map');
+        // }else{
+        //   let rect = L.polygon([
+        //     [spawn_data["x1_cords"],spawn_data["y1_cords"]],
+        //     [spawn_data["x2_cords"],spawn_data["y2_cords"]],
+        //     [spawn_data["x1_cords"],spawn_data["y2_cords"]],
+        //     [spawn_data["x2_cords"],spawn_data["y1_cords"]],
+        //   ]).addTo(map);
+        // }
+      }
+      
+    </script>
+
+
+
+
     <div class="banner">
       <button id="homeButton" onclick="window.location.href='index.html';">HOME</button>
       <button id="finishButton" onclick="window.location.href='map_sel.html';">FINISH</button>

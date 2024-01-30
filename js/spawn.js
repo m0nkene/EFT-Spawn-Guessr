@@ -54,6 +54,8 @@ function guess(e){
   let coords = e.latlng;
   let SCORE = 0;
 
+  sessionStorage.setItem('user_click', coords);
+
   if(spawn_data["type"]=== "targ"){
     const cor_x = spawn_data["x_cords"];
     const cor_y = spawn_data["y_cords"];
