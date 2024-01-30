@@ -119,30 +119,37 @@
         //score_map.setMaxBounds(pddBnds);
 
         //adding the users marker to the map 
-        let user_lat = (user_coords.lat);
-        let user_lng = (user_coords.lng);
-
-        console.log(user_lat +" | "+ user_lng);
 
         let user_click = L.marker(user_coords).addTo(score_map);
 
+        //determining what type of score zone to add around the users input. 
+        if(spawn_data["type"] === "targ"){
 
-        // //determining what type of score zone to add around the users input. 
-        // if(spawn_data["type"] === "targ"){
-        //   let circ = L.circle([spawn_data["x_cords"],spawn_data["y_cords"]], {
-        //     color: 'red',
-        //     fillColor: '#f03',
-        //     fillOpacity: 0.3,
-        //     radius: 3
-        //   }).addTo(score_map);
-        // }else{
-        //   let rect = L.polygon([
-        //     [spawn_data["x1_cords"],spawn_data["y1_cords"]],
-        //     [spawn_data["x2_cords"],spawn_data["y2_cords"]],
-        //     [spawn_data["x1_cords"],spawn_data["y2_cords"]],
-        //     [spawn_data["x2_cords"],spawn_data["y1_cords"]],
-        //   ]).addTo(score_map);
-        // }
+          let x = Number(spawn_data["x_cords"]);
+          let y = Number(spawn_data["y_cords"]);
+
+          console.log(x + " | " + y);
+
+          let circ = L.circle([x,y], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.3,
+            radius: 3
+          }).addTo(score_map);
+        }else{
+
+          let x1 = Number(spawn_data["x1_cords"]);
+          let y1 = Number(spawn_data["y1_cords"]);
+          let x2 = Number(spawn_data["x2_cords"]);
+          let y2 = Number(spawn_data["y2_cords"]);
+
+          let rect = L.polygon([
+            [x1,y1],
+            [x2,y2],
+            [x1,y2],
+            [x2,y1],
+          ]).addTo(score_map);
+        }
       }
       
     </script>
