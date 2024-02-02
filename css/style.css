@@ -135,7 +135,7 @@ textarea {
 
 .timeRead{
   position: fixed;
-  bottom: 2vh;
+  bottom: 40vh;
   right: 2vw;
   background-color: #2d4b2d;
   width: 15vw;
@@ -148,7 +148,7 @@ textarea {
   font-size: 3vw;
   border-radius: .5vw ;
 
-  z-index: 1700;
+  z-index: 1100;
 }
 
 .banner {
@@ -222,7 +222,7 @@ textarea {
 
 #guesser{
   position: fixed;
-  bottom: 20vh;
+  bottom: 50vh;
   right: 2vw;
   background-color: #4CAF50;
   width: 15vw;
@@ -238,10 +238,6 @@ textarea {
   z-index: 1000;
 }
 
-#mapOverlay{
-  z-index: 1600;
-}
-
 #scoreOverlay{
   z-index: 1900;
 }
@@ -251,9 +247,39 @@ textarea {
   font-family: "Arial Black", sans-serif;
   color: white;
   text-align: center;
+  left: 20vw;
 }
 
 
+#map{
+  display: none;
+  height: 35vh;
+  width: 30vw;
+  position: fixed;
+  bottom: .5vh;
+  right: .5vw;
+
+  background-color: #2d4b2d;
+
+  z-index: 1700;
+}
+
+#score_map{
+  height: 80vh;
+  width: 50vw;
+  position: fixed;
+  right: 0.5vw;
+  top: .5vh;
+
+  background-color: #2d4b2d;
+  
+  z-index: 2500;
+}
+
+#create_map{
+  height: 100vh;
+  width: auto;
+}
 
 
 

@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="css/style.css">
   <title>FACTORY</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script type="text/javascript" src="js/spawn.js"></script>
   <style>
@@ -30,12 +33,130 @@
     <div id="panorama"></div>
   </div>
 
-  <div class ="overlay" id="mapOverlay" onclick="guess(event)">
-    <button id="mapRead" class="timeRead"></button>
-    <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/></div>
 
-  <div class="overlay" id="scoreOverlay">
+  creating map component with the map image using the leaflet CRS Simple library
+  <div id="leaflet_container">
+
+    <div id="map"></div>
+  
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+       crossorigin="">
+    </script>
+  
+    <script>
+      function init() {
+
+        let map = L.map('map', {
+          crs: L.CRS.Simple
+        });
+        let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
+        let imageBnds = [[0,0],[432,768]];
+  
+        L.imageOverlay(imageURL,imageBnds).addTo(map);
+        //map.fitBounds(imageBnds);
+        map.setView([216,384],0);
+        
+        //creating buffer zones to restrict map dragging by user
+        let bnds = map.getBounds();
+        let pdgRatio = 0.2;
+        let pddBnds = bnds.pad(pdgRatio);
+        map.fitBounds(pddBnds);
+        map.setMaxBounds(pddBnds);
+        
+
+        map.on('click', guess);
+
+      }
+  
+    </script>
+
+  </div>
+
+  
+  
+  <!-- <div class ="overlay" id="mapOverlay" onclick="scoreMap()">
+    <button id="mapRead" class="timeRead"></button>
+    <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/>
+  </div> -->
+
+  
+  
+  <div class="overlay" id="scoreOverlay" >
     <div id="scoreReader" class="center">0</div>
+
+
+    <!-- Second leaflet container for the score screen -->
+    <div id="score_map"></div>
+  
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+       crossorigin="">
+    </script>
+  
+    <script>
+      function scoreMap() {
+
+        let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
+        let user_coords = JSON.parse(sessionStorage.getItem('user_click'));
+
+        console.log(user_coords);
+
+        let score_map = L.map('score_map', {
+          crs: L.CRS.Simple
+        });
+        let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
+        let imageBnds = [[0,0],[432,768]];
+  
+        L.imageOverlay(imageURL,imageBnds).addTo(score_map);
+        score_map.setView(user_coords,1);
+
+        //creating buffer zones to restrict map dragging by user
+        let bnds = score_map.getBounds();
+        let pdgRatio = 0.1;
+        let pddBnds = bnds.pad(pdgRatio);
+        score_map.fitBounds(pddBnds);
+        //score_map.setMaxBounds(pddBnds);
+
+        //adding the users marker to the map 
+
+        let user_click = L.marker(user_coords).addTo(score_map);
+
+        //determining what type of score zone to add around the users input. 
+        if(spawn_data["type"] === "targ"){
+
+          let x = Number(spawn_data["x_cords"]);
+          let y = Number(spawn_data["y_cords"]);
+
+          console.log(x + " | " + y);
+
+          let circ = L.circle([x,y], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.3,
+            radius: 3
+          }).addTo(score_map);
+        }else{
+
+          let x1 = Number(spawn_data["x1_cords"]);
+          let y1 = Number(spawn_data["y1_cords"]);
+          let x2 = Number(spawn_data["x2_cords"]);
+          let y2 = Number(spawn_data["y2_cords"]);
+
+          let rect = L.polygon([
+            [x1,y1],
+            [x2,y2],
+            [x1,y2],
+            [x2,y1],
+          ]).addTo(score_map);
+        }
+      }
+      
+    </script>
+
+
+
+
     <div class="banner">
       <button id="homeButton" onclick="window.location.href='index.html';">HOME</button>
       <button id="finishButton" onclick="window.location.href='map_sel.html';">FINISH</button>
