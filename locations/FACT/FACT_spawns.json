@@ -3,65 +3,65 @@
     {
       "id" : "1",
       "type" : "box",
-      "x1_cords" : "137",
+      "x1_cords" : "147",
       "y1_cords" : "236",
-      "x2_cords" : "127",
+      "x2_cords" : "128",
       "y2_cords" : "242.5"
     },
     {
       "id" : "2",
       "type" : "box",
-      "x1_cords" : "84.5",
-      "y1_cords" : "254.5",
+      "x1_cords" : "88",
+      "y1_cords" : "255",
       "x2_cords" : "61",
       "y2_cords" : "270"
     },
     {
       "id" : "3",
       "type" : "targ",
-      "x_cords" : "315.5",
+      "x_cords" : "319",
       "y_cords" : "337"
     },
     {
       "id" : "4",
       "type" : "targ",
-      "x_cords" : "252",
+      "x_cords" : "252.5",
       "y_cords" : "343.5"
     },
     {
       "id" : "5",
       "type" : "box",
-      "x1_cords" : "125.5",
+      "x1_cords" : "127",
       "y1_cords" : "365",
-      "x2_cords" : "102",
+      "x2_cords" : "101.5",
       "y2_cords" : "381"
     },
     {
       "id" : "6",
       "type" : "box",
       "x1_cords" : "344",
-      "y1_cords" : "425.5",
+      "y1_cords" : "419.5",
       "x2_cords" : "337",
-      "y2_cords" : "403"
+      "y2_cords" : "441"
     },
     {
       "id" : "7",
       "type" : "targ",
-      "x_cords" : "170.5",
-      "y_cords" : "467.5"
+      "x_cords" : "166.5",
+      "y_cords" : "463"
     },
     {
       "id" : "8",
       "type" : "box",
       "x1_cords" : "292",
-      "y1_cords" : "468",
+      "y1_cords" : "465",
       "x2_cords" : "277",
-      "y2_cords" : "487"
+      "y2_cords" : "487.5"
     },
     {
       "id" : "9",
       "type" : "box",
-      "x1_cords" : "350.5",
+      "x1_cords" : "350",
       "y1_cords" : "514",
       "x2_cords" : "334",
       "y2_cords" : "537"
@@ -71,19 +71,19 @@
       "type" : "box",
       "x1_cords" : "151",
       "y1_cords" : "555.5",
-      "x2_cords" : "127.5",
-      "y2_cords" : "574.4"
+      "x2_cords" : "128",
+      "y2_cords" : "574"
     },
     {
       "id" : "11",
       "type" : "targ",
-      "x_cords" : "227",
+      "x_cords" : "226.5",
       "y_cords" : "655.5"
     },
     {
       "id" : "12",
       "type" : "targ",
-      "x_cords" : "161.5",
+      "x_cords" : "172.5",
       "y_cords" : "701"
     }
   ]

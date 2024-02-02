@@ -98,14 +98,16 @@
       function scoreMap() {
 
         let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
+        let spawn_name = sessionStorage.getItem('spawn_name');
         let user_coords = JSON.parse(sessionStorage.getItem('user_click'));
 
         console.log(user_coords);
 
+        let imageURL = getScoreMap(spawn_name,spawn_data);
+
         let score_map = L.map('score_map', {
           crs: L.CRS.Simple
         });
-        let imageURL = 'locations\\FACT\\overlay\\FACT_Base.jpg';
         let imageBnds = [[0,0],[432,768]];
   
         L.imageOverlay(imageURL,imageBnds).addTo(score_map);
@@ -122,38 +124,18 @@
 
         let user_click = L.marker(user_coords).addTo(score_map);
 
-        //determining what type of score zone to add around the users input. 
-        if(spawn_data["type"] === "targ"){
+        // //determining what type of score zone to add around the users input. 
+        // if(spawn_data["type"] === "targ"){
 
-          let x = Number(spawn_data["x_cords"]);
-          let y = Number(spawn_data["y_cords"]);
+          
+          
+        // }else{
 
-          console.log(x + " | " + y);
-
-          let circ = L.circle([x,y], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.3,
-            radius: 3
-          }).addTo(score_map);
-        }else{
-
-          let x1 = Number(spawn_data["x1_cords"]);
-          let y1 = Number(spawn_data["y1_cords"]);
-          let x2 = Number(spawn_data["x2_cords"]);
-          let y2 = Number(spawn_data["y2_cords"]);
-
-          let rect = L.polygon([
-            [x1,y1],
-            [x2,y2],
-            [x1,y2],
-            [x2,y1],
-          ]).addTo(score_map);
-        }
+          
+        // }
       }
       
     </script>
-
 
 
 

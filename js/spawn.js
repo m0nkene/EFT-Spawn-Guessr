@@ -130,6 +130,16 @@ function boxScorer(time, user_x, user_y, x1, y1, x2, y2){
     return 0;
 }
 
+function getScoreMap(spawn_name, spawn_data){
+  let spawn_num = spawn_data['id'];
+
+  let fileNm = "locations/"+spawn_name+"/overlay/scored/"+spawn_name+"_"+spawn_num+"_Scored.jpg";
+  console.log(fileNm);
+  return fileNm;
+}
+
+
+
 //WILL OPEN THE MAP OVERLAY WHEN THE GUESS BUTTON IS PRESSED, THE EVENT LISTENER WILL PASSIVELY WAIT FOR AN ESCAPE KEY PRESS
 function showMapOverlay() {
   document.getElementById('map').style.display = 'block';
