@@ -124,15 +124,31 @@
 
         let user_click = L.marker(user_coords).addTo(score_map);
 
-        // //determining what type of score zone to add around the users input. 
-        // if(spawn_data["type"] === "targ"){
+        //determining what type of score zone to add around the users input. 
+        if(spawn_data["type"] === "box"){
+          
+          let x1 = Number(spawn_data["x1_cords"]);
+          let x2 = Number(spawn_data["x2_cords"]);
+          let y1 = Number(spawn_data["y1_cords"]);
+          let y2 = Number(spawn_data["y2_cords"]);
+          
 
-          
-          
-        // }else{
+          let cent_x = (x1 + x2)/2;
+          let cent_y = (y1 + y2)/2;
+          let corr_cords = new L.LatLng(cent_y, cent_x);
 
+          let line = L.polyline([corr_cords, user_coords], {color: 'red', weight: 10}).addTo(score_map);
           
-        // }
+          
+        }else{
+          
+          let corr_x = spawn_data["x_cords"];
+          let corr_y = spawn_data["y_cords"];
+          
+          let corr_cords = new L.LatLng(corr_y,corr_x);
+
+          let line = L.polyline([corr_cords, user_coords], {color: 'red', weight: 10}).addTo(score_map);
+        }
       }
       
     </script>
