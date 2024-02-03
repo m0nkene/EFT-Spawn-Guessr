@@ -66,20 +66,11 @@
         
 
         map.on('click', guess);
-
       }
   
     </script>
 
   </div>
-
-  
-  
-  <!-- <div class ="overlay" id="mapOverlay" onclick="scoreMap()">
-    <button id="mapRead" class="timeRead"></button>
-    <img src="locations/FACT/overlay/Factory_Base.jpg" style="width:auto; height: 100vh;"/>
-  </div> -->
-
   
   
   <div class="overlay" id="scoreOverlay" >
@@ -97,9 +88,9 @@
     <script>
       function scoreMap() {
 
-        let spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
-        let spawn_name = sessionStorage.getItem('spawn_name');
-        let user_coords = JSON.parse(sessionStorage.getItem('user_click'));
+        const spawn_data = JSON.parse(sessionStorage.getItem('spawn_data'));
+        const spawn_name = sessionStorage.getItem('spawn_name');
+        const user_coords = JSON.parse(sessionStorage.getItem('user_click'));
 
         console.log(user_coords);
 
@@ -115,40 +106,36 @@
 
         //creating buffer zones to restrict map dragging by user
         let bnds = score_map.getBounds();
-        let pdgRatio = 0.1;
-        let pddBnds = bnds.pad(pdgRatio);
-        score_map.fitBounds(pddBnds);
-        //score_map.setMaxBounds(pddBnds);
+        let pdg_ratio = 0.1;
+        let pdd_bnds = bnds.pad(pdg_ratio);
+        score_map.fitBounds(pdd_bnds);
+        score_map.setView(user_coords,1);
 
-        //adding the users marker to the map 
+        const corr_coords = getSpawnXY(spawn_data);
 
-        let user_click = L.marker(user_coords).addTo(score_map);
+        const marker_layer = L.layerGroup().addTo(score_map);
+        const line_layer = L.layerGroup().addTo(score_map);
 
-        //determining what type of score zone to add around the users input. 
-        if(spawn_data["type"] === "box"){
-          
-          let x1 = Number(spawn_data["x1_cords"]);
-          let x2 = Number(spawn_data["x2_cords"]);
-          let y1 = Number(spawn_data["y1_cords"]);
-          let y2 = Number(spawn_data["y2_cords"]);
-          
+        
+        const mark_line = L.polyline([corr_coords, user_coords], { color: "green", weight: 3 }).addTo(score_map);
 
-          let cent_x = (x1 + x2)/2;
-          let cent_y = (y1 + y2)/2;
-          let corr_cords = new L.LatLng(cent_y, cent_x);
+        const corr_mark = L.marker(corr_coords).addTo(marker_layer);
+        const user_mark = L.marker(user_coords).addTo(marker_layer);
 
-          let line = L.polyline([corr_cords, user_coords], {color: 'red', weight: 10}).addTo(score_map);
-          
-          
+        score_map.setView(corr_coords,1);
+
+
+        // line_layer.bringToFront();
+        // marker_layer.bringToFront();
+
+        if(corr_coords.lng<user_coords.lng){
+          score_map.setView(corr_coords,1);
         }else{
-          
-          let corr_x = spawn_data["x_cords"];
-          let corr_y = spawn_data["y_cords"];
-          
-          let corr_cords = new L.LatLng(corr_y,corr_x);
-
-          let line = L.polyline([corr_cords, user_coords], {color: 'red', weight: 10}).addTo(score_map);
+          score_map.setView(user_coords,1);
         }
+        
+        score_map.invalidateSize();
+
       }
       
     </script>

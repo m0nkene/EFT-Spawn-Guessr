@@ -3,24 +3,24 @@
     {
       "id" : "1",
       "type" : "box",
-      "x1_cords" : "147",
-      "y1_cords" : "236",
-      "x2_cords" : "128",
+      "x1_cords" : "147.0",
+      "y1_cords" : "236.0",
+      "x2_cords" : "128.0",
       "y2_cords" : "242.5"
     },
     {
       "id" : "2",
       "type" : "box",
-      "x1_cords" : "88",
-      "y1_cords" : "255",
-      "x2_cords" : "61",
-      "y2_cords" : "270"
+      "x1_cords" : "88.0",
+      "y1_cords" : "255.0",
+      "x2_cords" : "61.0",
+      "y2_cords" : "270.0"
     },
     {
       "id" : "3",
       "type" : "targ",
-      "x_cords" : "319",
-      "y_cords" : "337"
+      "x_cords" : "319.0",
+      "y_cords" : "337.0"
     },
     {
       "id" : "4",
@@ -31,48 +31,48 @@
     {
       "id" : "5",
       "type" : "box",
-      "x1_cords" : "127",
-      "y1_cords" : "365",
+      "x1_cords" : "127.0",
+      "y1_cords" : "365.0",
       "x2_cords" : "101.5",
-      "y2_cords" : "381"
+      "y2_cords" : "381.0"
     },
     {
       "id" : "6",
       "type" : "box",
-      "x1_cords" : "344",
+      "x1_cords" : "344.0",
       "y1_cords" : "419.5",
-      "x2_cords" : "337",
-      "y2_cords" : "441"
+      "x2_cords" : "337.0",
+      "y2_cords" : "441.0"
     },
     {
       "id" : "7",
       "type" : "targ",
       "x_cords" : "166.5",
-      "y_cords" : "463"
+      "y_cords" : "463.0"
     },
     {
       "id" : "8",
       "type" : "box",
-      "x1_cords" : "292",
-      "y1_cords" : "465",
-      "x2_cords" : "277",
+      "x1_cords" : "292.0",
+      "y1_cords" : "465.0",
+      "x2_cords" : "277.0",
       "y2_cords" : "487.5"
     },
     {
       "id" : "9",
       "type" : "box",
-      "x1_cords" : "350",
-      "y1_cords" : "514",
-      "x2_cords" : "334",
-      "y2_cords" : "537"
+      "x1_cords" : "350.0",
+      "y1_cords" : "514.0",
+      "x2_cords" : "334.0",
+      "y2_cords" : "537.0"
     },
     {
       "id" : "10",
       "type" : "box",
-      "x1_cords" : "151",
+      "x1_cords" : "151.0",
       "y1_cords" : "555.5",
-      "x2_cords" : "128",
-      "y2_cords" : "574"
+      "x2_cords" : "128.0",
+      "y2_cords" : "574.0"
     },
     {
       "id" : "11",
@@ -84,7 +84,7 @@
       "id" : "12",
       "type" : "targ",
       "x_cords" : "172.5",
-      "y_cords" : "701"
+      "y_cords" : "701.0"
     }
   ]
 }

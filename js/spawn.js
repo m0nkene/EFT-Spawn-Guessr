@@ -36,7 +36,9 @@ function startGame(){
   document.getElementById('map').style.display = 'block';
   document.getElementById('player').style.display = 'block';
 
+  //setTimeout(200);
   init();
+
 
   pannellum.viewer('panorama', {
     "type": "equirectangular",
@@ -123,7 +125,7 @@ function boxScorer(time, user_x, user_y, x1, y1, x2, y2){
 
   if (x2 <= user_x && user_x <= x1 && y1 <= user_y && user_y <= y2){
     let score = (((10000 / time).toFixed(2))*100).toFixed();
-    console.log(score);
+    //console.log(score);
     return score;
   }
   else
@@ -134,8 +136,42 @@ function getScoreMap(spawn_name, spawn_data){
   let spawn_num = spawn_data['id'];
 
   let fileNm = "locations/"+spawn_name+"/overlay/scored/"+spawn_name+"_"+spawn_num+"_Scored.jpg";
-  console.log(fileNm);
+  //console.log(fileNm);
   return fileNm;
+}
+
+function getSpawnXY(spawn_data){
+
+  let corr_cords;
+
+  if(spawn_data["type"] === "box"){
+          
+    console.log("box");
+    let x1 = parseFloat(spawn_data["x1_cords"]);
+    let x2 = parseFloat(spawn_data["x2_cords"]);
+    let y1 = parseFloat(spawn_data["y1_cords"]);
+    let y2 = parseFloat(spawn_data["y2_cords"]);
+    
+
+    let cent_x = (x1 + x2)/2;
+    let cent_y = (y1 + y2)/2;
+    let corr_cords = new L.LatLng(cent_x, cent_y);
+    console.log(corr_cords);
+    
+    return corr_cords;
+    
+  }else{
+    
+    console.log("target");
+    let corr_x = parseFloat(spawn_data["x_cords"]);
+    let corr_y = parseFloat(spawn_data["y_cords"]);
+    
+    let corr_cords = new L.LatLng(corr_x,corr_y);
+    console.log(corr_cords);
+
+    return corr_cords;
+
+  }
 }
 
 
